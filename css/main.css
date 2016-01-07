@@ -965,7 +965,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #85ffff;
+  background: #42ff11;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -1968,8 +1968,8 @@ ul li {
   background: #f5f5f5;
 }
 .header-inner {
-  margin-bottom: 80px;
-  padding: 40px 0;
+  margin-bottom: 60px;
+  padding: 30px 0;
 }
 .header-inner:before,
 .header-inner:after {
@@ -2077,6 +2077,7 @@ ul li {
   }
 }
 .menu .menu-item a {
+  font-size: 12px;
   padding: 5px 10px;
   background: none;
   border: none;
