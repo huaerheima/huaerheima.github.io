@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="家庭,许岑,随笔," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -51,17 +51,19 @@
 
 
 
-<meta name="description" content="从Keynote说起许岑是我非常喜欢的一个人，曾经是老罗英语培训学校的老师，英语好，吉他弹得棒，而且幻灯片做得牛逼。前年他出了一套教程，专门讲如何用 keynote 做幻灯片，90块钱，我买了。说实话，我在网上看过很多各种各样的视频教程，编程的、视频制作的、做菜的、ps的等等，要我说，真格来讲，90%以上都不好，哪里不好？—— 视频开场动画 low 、讲解画面无布景、音质粗糙、无讲解节奏…… 当然">
+<meta name="description" content="手动代码思考123456&amp;gt;&amp;gt;&amp;gt; a = [1,2,3,4,5]&amp;gt;&amp;gt;&amp;gt; b = a&amp;gt;&amp;gt;&amp;gt; print a,b[1, 2, 3, 4, 5] [1, 2, 3, 4, 5]&amp;gt;&amp;gt;&amp;gt; print id(a),id(b)4330458648 4330458648
+可见a、b对象内存地址相同，也就是b=a的过程，其实是传递了一个引用123">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从两个视频里参悟家庭关系">
-<meta property="og:url" content="http://yoursite.com/2016/01/08/second/index.html">
+<meta property="og:title" content="python对象复制（深浅复制）">
+<meta property="og:url" content="http://yoursite.com/2016/01/11/five/index.html">
 <meta property="og:site_name" content="HuaerHeima">
-<meta property="og:description" content="从Keynote说起许岑是我非常喜欢的一个人，曾经是老罗英语培训学校的老师，英语好，吉他弹得棒，而且幻灯片做得牛逼。前年他出了一套教程，专门讲如何用 keynote 做幻灯片，90块钱，我买了。说实话，我在网上看过很多各种各样的视频教程，编程的、视频制作的、做菜的、ps的等等，要我说，真格来讲，90%以上都不好，哪里不好？—— 视频开场动画 low 、讲解画面无布景、音质粗糙、无讲解节奏…… 当然">
-<meta property="og:image" content="http://yoursite.com/images/desktop.png">
-<meta property="og:updated_time" content="2016-01-11T04:53:59.000Z">
+<meta property="og:description" content="手动代码思考123456&amp;gt;&amp;gt;&amp;gt; a = [1,2,3,4,5]&amp;gt;&amp;gt;&amp;gt; b = a&amp;gt;&amp;gt;&amp;gt; print a,b[1, 2, 3, 4, 5] [1, 2, 3, 4, 5]&amp;gt;&amp;gt;&amp;gt; print id(a),id(b)4330458648 4330458648
+可见a、b对象内存地址相同，也就是b=a的过程，其实是传递了一个引用123">
+<meta property="og:updated_time" content="2016-01-11T08:14:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从两个视频里参悟家庭关系">
-<meta name="twitter:description" content="从Keynote说起许岑是我非常喜欢的一个人，曾经是老罗英语培训学校的老师，英语好，吉他弹得棒，而且幻灯片做得牛逼。前年他出了一套教程，专门讲如何用 keynote 做幻灯片，90块钱，我买了。说实话，我在网上看过很多各种各样的视频教程，编程的、视频制作的、做菜的、ps的等等，要我说，真格来讲，90%以上都不好，哪里不好？—— 视频开场动画 low 、讲解画面无布景、音质粗糙、无讲解节奏…… 当然">
+<meta name="twitter:title" content="python对象复制（深浅复制）">
+<meta name="twitter:description" content="手动代码思考123456&amp;gt;&amp;gt;&amp;gt; a = [1,2,3,4,5]&amp;gt;&amp;gt;&amp;gt; b = a&amp;gt;&amp;gt;&amp;gt; print a,b[1, 2, 3, 4, 5] [1, 2, 3, 4, 5]&amp;gt;&amp;gt;&amp;gt; print id(a),id(b)4330458648 4330458648
+可见a、b对象内存地址相同，也就是b=a的过程，其实是传递了一个引用123">
 
 
 
@@ -73,7 +75,7 @@
   };
 </script>
 
-  <title> 从两个视频里参悟家庭关系 | HuaerHeima </title>
+  <title> python对象复制（深浅复制） | HuaerHeima </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -213,7 +215,7 @@
             
             
               
-                从两个视频里参悟家庭关系
+                python对象复制（深浅复制）
               
             
           </h1>
@@ -222,8 +224,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-08T12:14:30+08:00" content="2016-01-08">
-              2016-01-08
+            <time itemprop="dateCreated" datetime="2016-01-11T15:07:35+08:00" content="2016-01-11">
+              2016-01-11
             </time>
           </span>
 
@@ -232,8 +234,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/家庭/" itemprop="url" rel="index">
-                    <span itemprop="name">家庭</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -248,8 +250,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/08/second/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/08/second/" itemprop="commentsCount"></span>
+                <a href="/2016/01/11/five/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/five/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -268,12 +270,12 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="u4ECEKeynote_u8BF4_u8D77"><a href="#u4ECEKeynote_u8BF4_u8D77" class="headerlink" title="从Keynote说起"></a>从Keynote说起</h4><p>许岑是我非常喜欢的一个人，曾经是老罗英语培训学校的老师，英语好，吉他弹得棒，而且幻灯片做得牛逼。前年他出了一套教程，专门讲如何用 <strong><em>keynote</em></strong> 做幻灯片，90块钱，我买了。说实话，我在网上看过很多各种各样的视频教程，编程的、视频制作的、做菜的、ps的等等，要我说，真格来讲，90%以上都不好，哪里不好？—— 视频开场动画 <strong><em>low</em></strong> 、讲解画面无布景、音质粗糙、无讲解节奏…… 当然了, <strong><em>youtube</em></strong> 上的视频教程整体质量要比国内的好很多。<br> <a id="more"></a><br>看了许岑的教程之后，我用王祖蓝的话来表达，就是“完美”。而后，为了学习用 <strong><em>keynote</em></strong> 制作幻灯片，我买了 <strong><em>mac book</em></strong> ，在学习 <strong><em>python + django</em></strong> 的时候，我把桌面做成了下面这个样子⬇️<br><img src="/images/desktop.png" alt="image">这是致敬！<br>老罗在微博里转发过他的微博，所以许岑很快靠卖教程发了财，接着相继退出了英语教程、吉他教程。虽然这两个教程我没买，但我对许岑的关注一直从未停止。尤其，我特别喜欢他在微博里发的有关孩子的日常，那简直，处处深得我心。</p>
-<h4 id="u4E24_u4E2A_u89C6_u9891"><a href="#u4E24_u4E2A_u89C6_u9891" class="headerlink" title="两个视频"></a>两个视频</h4><p>今天我看许岑的微博，我看到下面这条视频⬇️<br></p>
-<div class="video-container"><br><embed type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" quality="high" height="480" width="480" src="http://video.weibo.com/player/1034:6943623ece884c74ca2ca21bbb6523a3/v.swf"></div><br>看了之后呢我瞬间联想到之前看过的一个短句，叫《一屋高才生》，⬇️<br><div class="video-container"><br><iframe height="498" width="510" src="http://player.youku.com/embed/XMTM5MDUxNDIwMA==" frameborder="0" allowfullscreen></iframe></div>
-
-<h4 id="u5BB6_u5EAD"><a href="#u5BB6_u5EAD" class="headerlink" title="家庭"></a>家庭</h4><p>从两个视频里我看到了一个共同的特征：和谐。这种“和谐”是我想要的，然后我就找两个视频的共同点。一边找，一边琢磨，后来我琢磨明白了，答案就是：科学精神。<br>视频里许岑跟他媳妇探讨温州话：晓得了，这完全就是一个很好地论文题目嘛，《以温州话为例试论方言与普通话的异同》。还有《一屋高材生》里，清华妈妈出的题，爸爸跟爷爷的对话，整个也都是一个个课题嘛。<br><br><code>人的时间是有限的，你做这件事，必然就没时间做另一件事。</code><br><br>人还是应该由高级一点的情趣的。不记得是谁说过一句话了，“人无癖，不可交”，意思是说，一个人，总要热爱点什么。据我不多的观察，我发现有爱好的人生活中更多关注人与事物的关系，而无爱好的人更多关注人与人之间的关系。个人心得，未必准确，自己受用。<br></p>
-<h4 id="u8865_u5145"><a href="#u8865_u5145" class="headerlink" title="补充"></a>补充</h4><p>另外，两个视频里还有一点被我发现了，那就是：互损才是真爱。</p>
+        <span itemprop="articleBody"><p>手动代码思考<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>b = a</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(b)</span><br><span class="line"><span class="number">4330458648</span> <span class="number">4330458648</span></span><br></pre></td></tr></table></figure></p>
+<p>可见a、b对象内存地址相同，也就是<strong><em>b=a</em></strong>的过程，其实是传递了一个引用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] [<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>修改a列表内元素的数值，b列表相应改变。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<p>对象的变更操作和赋值,它们都是针对对象的引用操作的.此处 <strong><em>a = [100,200,300]</em></strong> 将 <strong><em>a</em></strong> 重新绑定给一个新对象,但不会影响对象 <strong><em>b</em></strong> ,然而,对象复制却不同,当对象复制后,对象变更操作就有了区别.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> copy</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c = copy.copy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(c) </span><br><span class="line"><span class="number">4494127400</span> <span class="number">4494128912</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">1</span>]),id(c[<span class="number">1</span>])</span><br><span class="line"><span class="number">140618063992424</span> <span class="number">140618063992424</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,c</span><br><span class="line">[<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,c</span><br><span class="line">[<span class="number">1</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(c)</span><br><span class="line"><span class="number">4330643752</span> <span class="number">4330645408</span></span><br></pre></td></tr></table></figure></p>
+<p>copy模块的copy函数复制的c，内存地址不同，但是列表内元素的内存地址相同，修改a列表内的元素实际是对元素的地址进行更改，因此对c内的元素不产生影响，但是如果列表层次更深一点会怎么样呢？重写一段代码测试<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> copy</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>b = copy.copy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">0</span>]),id(b[<span class="number">0</span>])</span><br><span class="line"><span class="number">4329189672</span> <span class="number">4329189672</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = [<span class="number">100</span>,<span class="number">100</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">100</span>, <span class="number">100</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">200</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">100</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">999</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">999</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，copy函数只是浅层次拷贝，列表内存地址不同，但是列表内元素的内存地址相同，因此列表层次一加深，改变一个列表内深一层元素值，另一个列表对应元素也会改变。所以，此时，如果需要两个列表互相独立，我们需要deepcopy函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c = copy.deepcopy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c</span><br><span class="line">[[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">0</span>]),id(b[<span class="number">0</span>])</span><br><span class="line"><span class="number">4329191256</span> <span class="number">4329189672</span></span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>
@@ -282,11 +284,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/家庭/" rel="tag">#家庭</a>
-          
-            <a href="/tags/许岑/" rel="tag">#许岑</a>
-          
-            <a href="/tags/随笔/" rel="tag">#随笔</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -295,17 +293,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/07/first-blog-post/" rel="next" title="第一篇博客">
-                <i class="fa fa-chevron-left"></i> 第一篇博客
+              <a href="/2016/01/11/four/" rel="next" title="and-or用法">
+                <i class="fa fa-chevron-left"></i> and-or用法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/11/three/" rel="prev" title="lambda函数用法">
-                lambda函数用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -332,8 +326,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/08/second/"
-           data-title="从两个视频里参悟家庭关系" data-url="http://yoursite.com/2016/01/08/second/">
+      <div class="ds-thread" data-thread-key="2016/01/11/five/"
+           data-title="python对象复制（深浅复制）" data-url="http://yoursite.com/2016/01/11/five/">
       </div>
     
   </div>
@@ -449,7 +443,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4ECEKeynote_u8BF4_u8D77"><span class="nav-number">1.</span> <span class="nav-text">从Keynote说起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4E24_u4E2A_u89C6_u9891"><span class="nav-number">2.</span> <span class="nav-text">两个视频</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5BB6_u5EAD"><span class="nav-number">3.</span> <span class="nav-text">家庭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u8865_u5145"><span class="nav-number">4.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

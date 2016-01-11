@@ -229,6 +229,320 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/11/five/" itemprop="url">
+                  python对象复制（深浅复制）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-11T15:07:35+08:00" content="2016-01-11">
+              2016-01-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/11/five/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/five/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>手动代码思考<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>b = a</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(b)</span><br><span class="line"><span class="number">4330458648</span> <span class="number">4330458648</span></span><br></pre></td></tr></table></figure></p>
+<p>可见a、b对象内存地址相同，也就是<strong><em>b=a</em></strong>的过程，其实是传递了一个引用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] [<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>修改a列表内元素的数值，b列表相应改变。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<p>对象的变更操作和赋值,它们都是针对对象的引用操作的.此处 <strong><em>a = [100,200,300]</em></strong> 将 <strong><em>a</em></strong> 重新绑定给一个新对象,但不会影响对象 <strong><em>b</em></strong> ,然而,对象复制却不同,当对象复制后,对象变更操作就有了区别.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> copy</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c = copy.copy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(c) </span><br><span class="line"><span class="number">4494127400</span> <span class="number">4494128912</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">1</span>]),id(c[<span class="number">1</span>])</span><br><span class="line"><span class="number">140618063992424</span> <span class="number">140618063992424</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,c</span><br><span class="line">[<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,c</span><br><span class="line">[<span class="number">1</span>, <span class="number">200</span>, <span class="number">300</span>] [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a),id(c)</span><br><span class="line"><span class="number">4330643752</span> <span class="number">4330645408</span></span><br></pre></td></tr></table></figure></p>
+<p>copy模块的copy函数复制的c，内存地址不同，但是列表内元素的内存地址相同，修改a列表内的元素实际是对元素的地址进行更改，因此对c内的元素不产生影响，但是如果列表层次更深一点会怎么样呢？重写一段代码测试<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> copy</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>b = copy.copy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">0</span>]),id(b[<span class="number">0</span>])</span><br><span class="line"><span class="number">4329189672</span> <span class="number">4329189672</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = [<span class="number">100</span>,<span class="number">100</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">100</span>, <span class="number">100</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">200</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">100</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">999</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> a,b</span><br><span class="line">[[<span class="number">999</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]] [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">200</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，copy函数只是浅层次拷贝，列表内存地址不同，但是列表内元素的内存地址相同，因此列表层次一加深，改变一个列表内深一层元素值，另一个列表对应元素也会改变。所以，此时，如果需要两个列表互相独立，我们需要deepcopy函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c = copy.deepcopy(a)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>a[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>c</span><br><span class="line">[[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> id(a[<span class="number">0</span>]),id(b[<span class="number">0</span>])</span><br><span class="line"><span class="number">4329191256</span> <span class="number">4329189672</span></span><br></pre></td></tr></table></figure></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/11/four/" itemprop="url">
+                  and-or用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-11T14:23:14+08:00" content="2016-01-11">
+              2016-01-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/11/four/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/four/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>在控制台输入以下代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">"first"</span></span><br><span class="line">b = <span class="string">"second"</span></span><br><span class="line"><span class="keyword">print</span> a <span class="keyword">and</span> b <span class="comment">#结果为:second</span></span><br><span class="line"><span class="keyword">print</span> a <span class="keyword">or</span> b <span class="comment">#结果为:first</span></span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/11/four/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/11/three/" itemprop="url">
+                  lambda函数用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-11T12:36:08+08:00" content="2016-01-11">
+              2016-01-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/11/three/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/three/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="u4EC0_u4E48_u662Flambda_u51FD_u6570"><a href="#u4EC0_u4E48_u662Flambda_u51FD_u6570" class="headerlink" title="什么是lambda函数"></a>什么是lambda函数</h4><p>简单来说，编程中提到的 <strong>lambda</strong> 表达式，通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指<strong>匿名函数</strong>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map( <span class="keyword">lambda</span> x: x*x, [y <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">10</span>)] )</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/11/three/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/08/second/" itemprop="url">
                   从两个视频里参悟家庭关系
                 </a>
@@ -456,21 +770,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
